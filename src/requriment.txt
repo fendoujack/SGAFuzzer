@@ -1,0 +1,10 @@
+argparse>=1.4.0
+requests>=2.31.0
+graphql>=3.2.3
+python-Levenshtein>=0.25.0
+openai>=1.13.3
+python-dotenv>=1.0.1
+logging>=0.4.9.6
+Levenshtein
+graphql-core
+spacy==3.7.5
