@@ -1,0 +1,42 @@
+Saleor Docker Deployment Guide
+
+This guide explains how to deploy Saleor with Docker in a few simple steps.
+
+Prerequisites
+
+Docker installed
+
+Docker Compose installed
+
+1. Clone the repository
+git clone https://github.com/mirumee/saleor-platform.git --recursive --jobs 3
+cd saleor-platform
+
+2. Build the Docker images
+docker-compose build
+
+3. Windows and macOS setup
+
+If you are using Windows or macOS:
+
+Add the saleor-platform folder to Docker’s shared directories
+
+Allocate at least 5 GB of memory to Docker
+
+4. Run database migrations
+docker-compose run --rm api python3 manage.py migrate
+
+5. Collect static files
+docker-compose run --rm api python3 manage.py collectstatic --noinput
+
+6. Optional: load sample data
+docker-compose run --rm api python3 manage.py populatedb
+
+7. Create an admin account
+docker-compose run --rm api python3 manage.py createsuperuser
+
+8. Start the services
+docker-compose up
+
+
+Saleor should now be running successfully.
